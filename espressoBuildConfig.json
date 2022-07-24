@@ -1,0 +1,20 @@
+//platformName = android
+//appium:espressoBuildConfig =
+//appium:showGradleLog = true
+//appium:forceEspressoRebuild = true
+//appium:automationName = espresso
+//appium:app: /Users/kostas/repos/jetpack-espresso-demo/app/build/outputs/apk/debug/app-debug.apk
+//appium:settings[driver] = compose
+
+
+{
+  "toolsVersions": {
+    "targetSdk": 32,
+    "compileSdk": 32,
+    "kotlin": "1.6.10"
+  },
+  "additionalAndroidTestDependencies": [
+    "androidx.compose.material:material:1.1.1",
+    "androidx.compose.ui:ui:1.1.1"
+  ]
+}
