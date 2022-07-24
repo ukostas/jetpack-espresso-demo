@@ -3,6 +3,7 @@ package my.training.myapplication
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.OutlinedTextField
@@ -24,7 +25,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    SimpleOutlinedTextFieldSample()
+                    Form()
                 }
             }
         }
@@ -32,21 +33,40 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun SimpleOutlinedTextFieldSample() {
-    var text by remember { mutableStateOf("") }
+fun Form() {
+    var firstName by remember { mutableStateOf("") }
+    var middleName by remember { mutableStateOf("") }
+    var lastName by remember { mutableStateOf("") }
 
-    OutlinedTextField(
-        value = text,
-        onValueChange = { text = it },
-        label = { Text("Type text here") },
-        modifier = Modifier.testTag("input_box")
-    )
+    Column {
+        OutlinedTextField(
+            value = firstName,
+            onValueChange = { firstName = it },
+            label = { Text("Type first name") },
+            maxLines = 1,
+            modifier = Modifier.testTag("first_name")
+        )
+        OutlinedTextField(
+            value = middleName,
+            onValueChange = { middleName = it },
+            label = { Text("Type middle name") },
+            maxLines = 1,
+            modifier = Modifier.testTag("middle_name")
+        )
+        OutlinedTextField(
+            value = lastName,
+            onValueChange = { lastName = it },
+            label = { Text("Type last name") },
+            maxLines = 1,
+            modifier = Modifier.testTag("last_name")
+        )
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     MyApplicationTheme {
-        SimpleOutlinedTextFieldSample()
+        Form()
     }
 }
